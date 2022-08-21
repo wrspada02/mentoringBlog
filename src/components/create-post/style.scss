@@ -1,13 +1,17 @@
 .form__container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   padding: 0.5rem 1rem;
   background-color: rgb(154, 163, 215);
-  width: 400px;
-  border-radius: 0.5rem;
-  max-height: 500px;
+  color: white;
+  column-gap: 20px;
+  height: 100px;
+
+  div{
+    display: flex;
+    flex-direction: column;
+  }
 
   label {
     width: 100%;
@@ -25,10 +29,9 @@
   button {
     border: none;
     border-radius: 0.5rem;
-    background-color: rgba(68, 68, 162, 0.447);
+    background-color: rgba(147, 50, 226, 0.447);
     width: 300px;
     padding: 0.8rem 0;
-    margin: 1rem 0;
     color: white;
     cursor: pointer;
 
@@ -36,12 +39,5 @@
       opacity: 0.5;
       transition: 0.5s;
     }
-  }
-
-  textarea {
-    min-width: 100px;
-    height: 200px;
-    border: 1px solid black;
-    max-width: 300px;
   }
 }

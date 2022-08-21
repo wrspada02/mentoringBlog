@@ -12,11 +12,10 @@ interface InputProps {
 export function Input({ item, setItem, inputObject }: InputProps) {
   return (
     <>
-      <label>{inputObject.label}</label>
+      <label>{inputObject.label}:</label>
       <input
         type={'text'}
-        onChange={(e) => setItem({ ...item, author: e.target.value })}
-        value={inputObject.value}
+        onChange={(e) => setItem({ ...item,/* I need to fix it */ author: e.target.value })}
       />
     </>
   );

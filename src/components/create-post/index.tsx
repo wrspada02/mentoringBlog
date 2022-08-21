@@ -10,7 +10,12 @@ interface CreatePostProps {
   posts: Post[];
 }
 
-const INPUTS_FORM = ['Title', 'Subtitle', 'Author', 'Content'];
+const INPUTS_FORM = [
+  { value: 'title', label: 'Title' },
+  { value: 'subtitle', label: 'Subtitle' },
+  { value: 'author', label: 'Author' },
+  { value: 'content', label: 'Content' },
+];
 
 export function CreatePost({ item, setItem, setPosts, posts }: CreatePostProps) {
   function handleAddPost(e: React.FormEvent) {
@@ -20,14 +25,16 @@ export function CreatePost({ item, setItem, setPosts, posts }: CreatePostProps) 
 
   return (
     <form className="form__container">
-      <label>Title:</label>
-      <input type={'text'} onChange={(e) => setItem({ ...item, title: e.target.value })} value={item.title}></input>
-      <label>Subtitle:</label>
-      <input type={'text'} onChange={(e) => setItem({ ...item, subtitle: e.target.value })} value={item.subtitle}></input>
-      <label>Author:</label>
-      <input type={'text'} onChange={(e) => setItem({ ...item, author: e.target.value })} value={item.author}></input>
-      <label>Content:</label>
-      <textarea onChange={(e) => setItem({ ...item, content: e.target.value })} value={item.content}></textarea>
+      {INPUTS_FORM.map((inputLabel, index) => (
+        <div>
+          <Input
+            inputObject={inputLabel}
+            item={item}
+            setItem={setItem}
+            key={index}
+          />
+        </div>
+      ))}
       <button type="button" onClick={(e) => handleAddPost(e)}>Create</button>
     </form>
   );
